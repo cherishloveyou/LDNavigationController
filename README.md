@@ -24,9 +24,11 @@ Change the class of your UINavigationController to be LDNavigationController. Th
 | **useTopViewControllerStatusBarStyle**  | Boolean | Use the Top View Controller's status bar style and preferred hidden status.  |
 | **useRootViewControllerStatusBarStyle** | Boolean | Use the Root View Controller's status bar style and preferred hidden status. |
 
+For additional help check out the provided example.
+
 ###Programmatically
 
-Create your navigation controller using LDNavigationController with initWithRootViewController. Then you can then customize the statuse bar using the following properties.
+Create your navigation controller using LDNavigationController with initWithRootViewController. Then you can customize the statuse bar using the following properties.
 
 | Name                                    | Description                                                                                |
 | --------------------------------------- | ------------------------------------------------------------------------------------------ |
@@ -35,6 +37,8 @@ Create your navigation controller using LDNavigationController with initWithRoot
 | **statusBarHidden**                     | Set status bar hidden.                                                                     |
 | **useTopViewControllerStatusBarStyle**  | Use the Top View Controller's status bar style and preferred hidden status.                |
 | **useRootViewControllerStatusBarStyle** | Use the Root View Controller's status bar style and preferred hidden status.               |
+
+For additional help check out the provided example.
 
 ## License
 
@@ -62,4 +66,3 @@ LDNavigationController is published under BSD 2-Clause License
 	ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
