@@ -15,6 +15,10 @@
 //  	list of conditions and the following disclaimer in the documentation and/or
 //  	other materials provided with the distribution.
 //
+//      Neither the name of the {organization} nor the names of its
+//      contributors may be used to endorse or promote products derived from
+//      this software without specific prior written permission.
+//
 //  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 //  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 //  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -36,24 +40,11 @@ NSString * const LDStatusBarStyleDarkContent = @"darkContent";
     UIView * _statusBarView;
 }
 
-- (instancetype)initWithRootViewController:(UIViewController *)rootViewController {
-    self = [super initWithRootViewController:rootViewController];
-    
-    if (self) {
-        [self createStatusBarView];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1 && _statusBarView) {
+        [[[self.navigationBar subviews] objectAtIndex:0] addSubview:_statusBarView];
     }
-    
-    return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    
-    if (self) {
-        [self createStatusBarView];
-    }
-    
-    return self;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -95,8 +86,8 @@ NSString * const LDStatusBarStyleDarkContent = @"darkContent";
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
-        [self.navigationBar bringSubviewToFront:_statusBarView];
+    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1 && _statusBarView) {
+        [[[self.navigationBar subviews] objectAtIndex:0] bringSubviewToFront:_statusBarView];
     }
 }
 
@@ -105,9 +96,8 @@ NSString * const LDStatusBarStyleDarkContent = @"darkContent";
 - (void)createStatusBarView {
     if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
         CGFloat statusBarHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
-        _statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, -1 * statusBarHeight, self.view.bounds.size.width, statusBarHeight)];
+        _statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, statusBarHeight)];
         [_statusBarView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-        [self.navigationBar addSubview:_statusBarView];
     }
 }
 
@@ -115,6 +105,10 @@ NSString * const LDStatusBarStyleDarkContent = @"darkContent";
 
 - (void)setStatusBarColor:(UIColor *)statusBarColor {
     _statusBarColor = statusBarColor;
+    
+    if (!_statusBarView) {
+        [self createStatusBarView];
+    }
     [_statusBarView setBackgroundColor:statusBarColor];
 }
 
