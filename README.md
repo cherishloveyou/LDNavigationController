@@ -1,6 +1,6 @@
 #LDNavigationController
 
-Convenient navigation controller subclass for changing the status bar background color in iOS 7 and setting status bar style and hidden property based on top view controller or root view controller.
+Convenient navigation controller subclass for changing the status bar background color in iOS 7+ and setting status bar style and hidden property based on top view controller or root view controller.
 
 ##Install
 
@@ -18,7 +18,7 @@ Change the class of your UINavigationController to be LDNavigationController. Th
 
 | Name                                    | Type    | Description                                                                  |
 | --------------------------------------- | :-----: | ---------------------------------------------------------------------------- | 
-| **statusBarColor**                      | Color   | Color for the Status Bar Background. (*iOS 7 only!*)                         |
+| **statusBarColor**                      | Color   | Color for the Status Bar Background. (*iOS 7+ only!*)                         |
 | **statusBarStyle**                      | String  | Status Bar Style to use. (`lightContent` or `darkContent`)                   |
 | **statusBarHidden**                     | Boolean | Set status bar hidden.                                                       |
 | **useTopViewControllerStatusBarStyle**  | Boolean | Use the Top View Controller's status bar style and preferred hidden status.  |
@@ -32,7 +32,7 @@ Create your navigation controller using LDNavigationController with initWithRoot
 
 | Name                                    | Description                                                                                |
 | --------------------------------------- | ------------------------------------------------------------------------------------------ |
-| **statusBarColor**                      | Color for the Status Bar Background. (*iOS 7 only!*)                                       |
+| **statusBarColor**                      | Color for the Status Bar Background. (*iOS 7+ only!*)                                       |
 | **statusBarStyle**                      | Status Bar Style to use. (`LDStatusBarStyleLightContent` or `LDStatusBarStyleDarkContent`) |
 | **statusBarHidden**                     | Set status bar hidden.                                                                     |
 | **useTopViewControllerStatusBarStyle**  | Use the Top View Controller's status bar style and preferred hidden status.                |
@@ -56,7 +56,7 @@ LDNavigationController is published under BSD 3-Clause License
 	list of conditions and the following disclaimer in the documentation and/or
 	other materials provided with the distribution.
 	
-	Neither the name of the {organization} nor the names of its
+	Neither the name of the Lepidus Development, LLC nor the names of its
 	contributors may be used to endorse or promote products derived from
 	this software without specific prior written permission.
 
